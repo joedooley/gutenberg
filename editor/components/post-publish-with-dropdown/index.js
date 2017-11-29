@@ -22,7 +22,7 @@ import {
 } from '../../selectors';
 
 function PostPublishWithDropdown( { isSaving, isPublishable, isSaveable, isPublished } ) {
-	const isButtonEnabled = ! isSaving && isPublishable && isSaveable;
+	const isButtonEnabled = ! isSaving && isPublishable && isSaveable || isPublished;
 
 	return (
 		<Dropdown
@@ -41,7 +41,7 @@ function PostPublishWithDropdown( { isSaving, isPublishable, isSaveable, isPubli
 					<Dashicon icon="arrow-down" />
 				</Button>
 			) }
-			renderContent={ ( { onClose } ) => <PostPublishDropdown onSubmit={ onClose } /> }
+			renderContent={ ( { onClose } ) => <PostPublishDropdown onSubmit={ onClose } showSwitchToDraft={ isPublished } /> }
 		/>
 	);
 }
