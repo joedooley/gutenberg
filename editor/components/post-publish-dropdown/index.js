@@ -1,11 +1,11 @@
 /**
- * WordPress Dependencies
+ * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { withAPIData, PanelBody, Button } from '@wordpress/components';
+import { withAPIData, PanelBody } from '@wordpress/components';
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import './style.scss';
 import PostVisibility from '../post-visibility';
@@ -13,6 +13,7 @@ import PostVisibilityLabel from '../post-visibility/label';
 import PostSchedule from '../post-schedule';
 import PostScheduleLabel from '../post-schedule/label';
 import PostPublishButton from '../post-publish-button';
+import PostSwitchToDraftButton from '../post-switch-to-draft-button';
 
 function PostPublishDropdown( { user, onSubmit, showSwitchToDraft } ) {
 	const canPublish = user.data && user.data.capabilities.publish_posts;
@@ -44,12 +45,7 @@ function PostPublishDropdown( { user, onSubmit, showSwitchToDraft } ) {
 			}
 			<div className="editor-post-publish-dropdown__publish-button-container">
 				{ showSwitchToDraft &&
-					<Button
-						className="editor-post-publish-dropdown__switch-to-draft"
-						isLarge
-					>
-						{ __( 'Switch to Draft' ) }
-					</Button>
+					<PostSwitchToDraftButton />
 				}
 				<PostPublishButton onSubmit={ onSubmit } />
 			</div>
