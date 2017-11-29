@@ -15,7 +15,7 @@ import PostScheduleLabel from '../post-schedule/label';
 import PostPublishButton from '../post-publish-button';
 import PostSwitchToDraftButton from '../post-switch-to-draft-button';
 
-function PostPublishDropdown( { user, onSubmit, showSwitchToDraft } ) {
+function PostPublishDropdown( { user, onSubmit } ) {
 	const canPublish = user.data && user.data.capabilities.publish_posts;
 
 	return (
@@ -44,9 +44,7 @@ function PostPublishDropdown( { user, onSubmit, showSwitchToDraft } ) {
 				</PanelBody>
 			}
 			<div className="editor-post-publish-dropdown__publish-button-container">
-				{ showSwitchToDraft &&
-					<PostSwitchToDraftButton />
-				}
+				<PostSwitchToDraftButton />
 				<PostPublishButton onSubmit={ onSubmit } />
 			</div>
 		</div>

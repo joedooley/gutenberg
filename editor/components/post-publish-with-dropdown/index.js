@@ -41,7 +41,7 @@ function PostPublishWithDropdown( { isSaving, isPublishable, isSaveable, isPubli
 					<Dashicon icon="arrow-down" />
 				</Button>
 			) }
-			renderContent={ ( { onClose } ) => <PostPublishDropdown onSubmit={ onClose } showSwitchToDraft={ isPublished } /> }
+			renderContent={ ( { onClose } ) => <PostPublishDropdown onSubmit={ onClose } /> }
 		/>
 	);
 }
